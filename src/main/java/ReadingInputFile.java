@@ -6,14 +6,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ReadingInputFile {
-    public static ArrayList<int[]> ReadFile(String fileName) {
+    public static ArrayList<int[]> ReadFile(String fileName) throws FileNotFoundException{
         File file = new File(fileName);
         Scanner scanner = null;
-        try {
-            scanner = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found. Please try again");
-        }
+        scanner = new Scanner(file);
 
         ArrayList<int[]> numbers = new ArrayList<>();
         int string = 1;
@@ -30,15 +26,15 @@ public class ReadingInputFile {
                 if (counter < 6)
                     throw new CoordinateException();
             } catch (NumberFormatException e){
-                System.out.println("String number " + string + ", has contains a wrong characters.");
+                System.out.println("String number " + string + ", has contained a wrong characters.");
                 string++;
                 continue;
             } catch (ArrayIndexOutOfBoundsException e){
-                System.out.println("String number " + string + ", has contains an excess coordinates.");
+                System.out.println("String number " + string + ", has contained an excess coordinates.");
                 string++;
                 continue;
             } catch (CoordinateException e){
-                System.out.println("String number " + string + ", hasn't contains of all coordinates.");
+                System.out.println("String number " + string + ", hasn't contained of all coordinates.");
                 string++;
                 continue;
             }
