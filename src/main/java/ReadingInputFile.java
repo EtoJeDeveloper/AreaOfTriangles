@@ -1,8 +1,5 @@
-import javax.swing.border.EmptyBorder;
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ReadingInputFile {
@@ -11,17 +8,17 @@ public class ReadingInputFile {
         Scanner scanner = null;
         scanner = new Scanner(file);
 
-        ArrayList<int[]> numbers = new ArrayList<>();
+        ArrayList<int[]> triangles = new ArrayList<>();
         int string = 1;
         while (scanner.hasNext()){
             int counter = 0;
-            int[] mas = new int[6];
+            int[] coordinateOfOneTriangles = new int[6];
             String line = scanner.nextLine();
-            String[] numbersString = line.split(" ");
+            String[] trianglesString = line.split(" ");
 
             try {
-                for (String s : numbersString) {
-                    mas[counter++] = Integer.parseInt(s);
+                for (String s : trianglesString) {
+                    coordinateOfOneTriangles[counter++] = Integer.parseInt(s);
                 }
                 if (counter < 6)
                     throw new CoordinateException();
@@ -38,11 +35,11 @@ public class ReadingInputFile {
                 string++;
                 continue;
             }
-            numbers.add(mas);
+            triangles.add(coordinateOfOneTriangles);
             string++;
         }
 
         scanner.close();
-        return numbers;
+        return triangles;
     }
 }

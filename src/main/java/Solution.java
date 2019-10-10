@@ -7,23 +7,20 @@ import java.util.Arrays;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        String in, out;
-        System.out.println("Please, enter name of input and output file");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        in = reader.readLine();
-        ArrayList<int[]> list = null;
+        System.out.println("Please, enter name of input and output file");
+        String in = reader.readLine();
+        ArrayList<int[]> triangles = null;
 
-        while (list == null){
+        while (triangles == null){
             try {
-                list = ReadingInputFile.ReadFile(in);
+                triangles = ReadingInputFile.ReadFile(in);
             } catch (FileNotFoundException e) {
                 System.out.println("File not found. Please try again");
                 in = reader.readLine();
             }
         }
 
-        for (int[] ints : list) {
-            System.out.println(Arrays.toString(ints));
-        }
+        Triangles.IsoscelesTriangles(triangles);
     }
 }
