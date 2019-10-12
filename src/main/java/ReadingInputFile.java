@@ -23,15 +23,15 @@ public class ReadingInputFile {
                 if (counter < 6)
                     throw new CoordinateException();
             } catch (NumberFormatException e){
-                System.out.println("String number " + string + ", has contained a wrong characters.");
+                System.out.println("String number " + string + " has contained a wrong characters.");
                 string++;
                 continue;
             } catch (ArrayIndexOutOfBoundsException e){
-                System.out.println("String number " + string + ", has contained an excess coordinates.");
+                System.out.println("String number " + string + " has contained an excess coordinates.");
                 string++;
                 continue;
             } catch (CoordinateException e){
-                System.out.println("String number " + string + ", hasn't contained of all coordinates.");
+                System.out.println("String number " + string + " hasn't contained of all coordinates.");
                 string++;
                 continue;
             }

@@ -1,31 +1,41 @@
 import java.lang.reflect.Array;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Triangles {
     public static void IsoscelesTriangles(ArrayList<int[]> list){
         double area = 0;
-        for (int[] coordinateOfOneTriangles : list) {
-            int Xa = coordinateOfOneTriangles[0];
-            int Ya = coordinateOfOneTriangles[1];
-            int Xb = coordinateOfOneTriangles[2];
-            int Yb = coordinateOfOneTriangles[3];
-            int Xc = coordinateOfOneTriangles[4];
-            int Yc = coordinateOfOneTriangles[5];
+        double areaBuf = 0;
+
+        int[] CoordinatesOfTheLargestTriangle = new int[6];
+        for (int[] TriangleCoordinates : list) {
+            int Xa = TriangleCoordinates[0];
+            int Ya = TriangleCoordinates[1];
+            int Xb = TriangleCoordinates[2];
+            int Yb = TriangleCoordinates[3];
+            int Xc = TriangleCoordinates[4];
+            int Yc = TriangleCoordinates[5];
 
             double AB = Math.sqrt((Xb - Xa) * (Xb - Xa) + (Yb - Ya) * (Yb - Ya));
             double AC = Math.sqrt((Xc - Xa) * (Xc - Xa) + (Yc - Ya) * (Yc - Ya));
             double BC = Math.sqrt((Xc - Xb) * (Xc - Xb) + (Yc - Yb) * (Yc - Yb));
 
-            if (AB == AC) {
-                area = BC/4 * Math.sqrt(4*AB*AB - BC*BC);
-            } else if (AB == BC) {
-                area = AC/4 * Math.sqrt(4*AB*AB - AC*AC);
-            } else if (AC == BC) {
-                area = AB/4 * Math.sqrt(4*AC*AC - AB*AB);
+            if (AB == AC & AB != 0 & AC != 0 & BC != 0) {
+                areaBuf = BC/4 * Math.sqrt(4*AB*AB - BC*BC);
+            } else if (AB == BC & AB != 0 & AC != 0 & BC != 0) {
+                areaBuf = AC/4 * Math.sqrt(4*AB*AB - AC*AC);
+            } else if (AC == BC & AB != 0 & AC != 0 & BC != 0) {
+                areaBuf = AB/4 * Math.sqrt(4*AC*AC - AB*AB);
             }
 
-            System.out.println(area);
+            if (area < areaBuf){
+                CoordinatesOfTheLargestTriangle = TriangleCoordinates;
+                area = areaBuf;
+                areaBuf = 0;
+            }
         }
+
+        System.out.println(Arrays.toString(CoordinatesOfTheLargestTriangle));
     }
 }
