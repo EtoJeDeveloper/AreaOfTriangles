@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class ReadingInputFile {
     public static ArrayList<int[]> ReadFile(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
-        Scanner scanner = null;
-        scanner = new Scanner(file);
+        Scanner scanner = new Scanner(file);;
 
         ArrayList<int[]> triangles = new ArrayList<>();
         int string = 1;

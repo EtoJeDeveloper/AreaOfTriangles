@@ -1,29 +1,28 @@
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Please, enter name of input file");
-        String in = reader.readLine();
+        String inputFile = scanner.nextLine();
         ArrayList<int[]> triangles = null;
 
         while (triangles == null){
             try {
-                triangles = ReadingInputFile.ReadFile(in);
+                triangles = ReadingInputFile.ReadFile(inputFile);
             } catch (FileNotFoundException e) {
                 System.out.println("File not found. Please try again");
-                in = reader.readLine();
+                inputFile = scanner.nextLine();
             }
         }
 
         System.out.println("Please, enter name of output file");
-        String out = reader.readLine();
+        String outputFile = scanner.nextLine();
 
         int[] CoordinatesOfTheLargestTriangle = Triangles.IsoscelesTriangles(triangles);
-        WriteOutputFile.WriteFile(out, CoordinatesOfTheLargestTriangle);
+        WriteOutputFile.WriteFile(outputFile, CoordinatesOfTheLargestTriangle);
     }
 }
