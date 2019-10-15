@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Please, enter name of input and output file");
+        System.out.println("Please, enter name of input file");
         String in = reader.readLine();
         ArrayList<int[]> triangles = null;
 
@@ -20,6 +20,10 @@ public class Solution {
             }
         }
 
-        Triangles.IsoscelesTriangles(triangles);
+        System.out.println("Please, enter name of output file");
+        String out = reader.readLine();
+
+        int[] CoordinatesOfTheLargestTriangle = Triangles.IsoscelesTriangles(triangles);
+        WriteOutputFile.WriteFile(out, CoordinatesOfTheLargestTriangle);
     }
 }

@@ -1,9 +1,10 @@
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReadingInputFile {
-    public static ArrayList<int[]> ReadFile(String fileName) throws FileNotFoundException{
+    public static ArrayList<int[]> ReadFile(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
         Scanner scanner = null;
         scanner = new Scanner(file);

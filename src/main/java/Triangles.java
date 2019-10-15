@@ -1,10 +1,8 @@
-import java.lang.reflect.Array;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Triangles {
-    public static void IsoscelesTriangles(ArrayList<int[]> list){
+    public static int[] IsoscelesTriangles(ArrayList<int[]> list){
         double area = 0;
         double areaBuf = 0;
 
@@ -36,6 +34,6 @@ public class Triangles {
             }
         }
 
-        System.out.println(Arrays.toString(CoordinatesOfTheLargestTriangle));
+        return CoordinatesOfTheLargestTriangle;
     }
 }
