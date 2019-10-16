@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Triangles {
-    public static int[] IsoscelesTriangles(ArrayList<int[]> list){
+    public static int[] AreaOfTheLargestIsoscelesTriangle(ArrayList<int[]> list){
         double area = 0;
         double areaBuf = 0;
 
@@ -33,6 +33,10 @@ public class Triangles {
             }
         }
 
-        return CoordinatesOfTheLargestTriangle;
+        if (area > 0){
+            return CoordinatesOfTheLargestTriangle;
+        }
+        else
+            return null;
     }
 }

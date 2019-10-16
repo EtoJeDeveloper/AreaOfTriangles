@@ -22,7 +22,7 @@ public class Solution {
         System.out.println("Please, enter name of output file");
         String outputFile = scanner.nextLine();
 
-        int[] CoordinatesOfTheLargestTriangle = Triangles.IsoscelesTriangles(triangles);
+        int[] CoordinatesOfTheLargestTriangle = Triangles.AreaOfTheLargestIsoscelesTriangle(triangles);
         WriteOutputFile.WriteFile(outputFile, CoordinatesOfTheLargestTriangle);
     }
 }

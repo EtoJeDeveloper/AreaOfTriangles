@@ -7,8 +7,10 @@ public class WriteOutputFile {
         File file = new File(outputFileName);
         PrintWriter printWriter = new PrintWriter(file);
 
-        for (int coordinate : CoordinatesOfTheLargestTriangle) {
-            printWriter.print(coordinate + " ");
+        if (CoordinatesOfTheLargestTriangle != null) {
+            for (int coordinate : CoordinatesOfTheLargestTriangle) {
+                printWriter.print(coordinate + " ");
+            }
         }
 
         printWriter.close();
