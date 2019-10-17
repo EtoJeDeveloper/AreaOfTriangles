@@ -1,11 +1,10 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Triangles {
     public static int[] AreaOfTheLargestIsoscelesTriangle(ArrayList<int[]> list){
+        double largestArea = 0;
         double area = 0;
-        double areaBuf = 0;
         int[] CoordinatesOfTheLargestTriangle = new int[6];
 
         for (int[] TriangleCoordinates : list) {
@@ -25,26 +24,26 @@ public class Triangles {
                     throw new NaNException();
             } catch (NaNException e){
                 System.out.println();
-                System.out.println("The coordinates of triangle: " + Arrays.toString(TriangleCoordinates) + " are too large, area of this triangle cannot be calculated");
+                System.out.println("The coordinates of triangle: " + Arrays.toString(TriangleCoordinates) + " are too large, area of this triangle cannot be calculated.");
                 continue;
             }
 
             if (AB == AC & AB != 0 & AC != 0 & BC != 0) {
-                areaBuf = BC/4 * Math.sqrt(4*AB*AB - BC*BC);
+                area = BC/4 * Math.sqrt(4*AB*AB - BC*BC);
             } else if (AB == BC & AB != 0 & AC != 0 & BC != 0) {
-                areaBuf = AC/4 * Math.sqrt(4*AB*AB - AC*AC);
+                area = AC/4 * Math.sqrt(4*AB*AB - AC*AC);
             } else if (AC == BC & AB != 0 & AC != 0 & BC != 0) {
-                areaBuf = AB/4 * Math.sqrt(4*AC*AC - AB*AB);
+                area = AB/4 * Math.sqrt(4*AC*AC - AB*AB);
             }
 
-            if (area < areaBuf){
+            if (largestArea < area){
                 CoordinatesOfTheLargestTriangle = TriangleCoordinates;
-                area = areaBuf;
-                areaBuf = 0;
+                largestArea = area;
+                area = 0;
             }
         }
 
-        if (area > 0){
+        if (largestArea > 0){
             return CoordinatesOfTheLargestTriangle;
         }
         else

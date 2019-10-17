@@ -3,9 +3,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public class TrianglesTest {
     private static ArrayList<int[]> triangles;
 
@@ -26,7 +23,7 @@ public class TrianglesTest {
         triangles.add(coordinateOfOneTriangles3);
         triangles.add(coordinateOfOneTriangles4);
 
-        assertEquals(coordinateOfOneTriangles1, Triangles.AreaOfTheLargestIsoscelesTriangle(triangles));
+         Assert.assertEquals(coordinateOfOneTriangles1, Triangles.AreaOfTheLargestIsoscelesTriangle(triangles));
     }
 
     @Test

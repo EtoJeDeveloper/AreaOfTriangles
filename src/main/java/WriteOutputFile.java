@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class WriteOutputFile {
-    public static void WriteFile(String outputFileName, int[] CoordinatesOfTheLargestTriangle) throws FileNotFoundException {
+    public static PrintWriter WriteFile(String outputFileName, int[] CoordinatesOfTheLargestTriangle) throws FileNotFoundException {
         File file = new File(outputFileName);
         PrintWriter printWriter = new PrintWriter(file);
 
@@ -14,5 +14,7 @@ public class WriteOutputFile {
         }
 
         printWriter.close();
+
+        return printWriter;
     }
 }
