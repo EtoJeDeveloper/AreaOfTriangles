@@ -14,7 +14,7 @@ public class AreaOfTriangle {
             inputFile = args[0];
             outputFile = args[1];
         } catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("You must set command-line arguments. Please rename file.");
+            System.out.println("You must set command-line arguments. Please try again.");
             return;
         }
 
@@ -23,7 +23,7 @@ public class AreaOfTriangle {
             try {
                 triangles = ReadingInputFile.ReadFile(inputFile);
             } catch (FileNotFoundException e) {
-                System.out.println("Input file not found. Please try again.");
+                System.out.println("Input file not found. Please rename file.");
                 System.out.print("New name for input file: ");
                 inputFile = scanner.nextLine();
             }
