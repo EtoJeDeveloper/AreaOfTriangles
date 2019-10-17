@@ -6,10 +6,11 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Please, enter name of input file");
         String inputFile = scanner.nextLine();
-        ArrayList<int[]> triangles = null;
 
+        ArrayList<int[]> triangles = null;
         while (triangles == null){
             try {
                 triangles = ReadingInputFile.ReadFile(inputFile);
@@ -19,10 +20,22 @@ public class Solution {
             }
         }
 
-        System.out.println("Please, enter name of output file");
-        String outputFile = scanner.nextLine();
-
         int[] CoordinatesOfTheLargestTriangle = Triangles.AreaOfTheLargestIsoscelesTriangle(triangles);
-        WriteOutputFile.WriteFile(outputFile, CoordinatesOfTheLargestTriangle);
+
+        System.out.println();
+        System.out.println("Please, enter name of output file");
+        String outputFile = "";
+
+        while (outputFile.equals("")){
+            outputFile = scanner.nextLine();
+            try {
+                WriteOutputFile.WriteFile(outputFile, CoordinatesOfTheLargestTriangle);
+            } catch (FileNotFoundException e) {
+                System.out.println("Unable to read/create file with this name. Please try again. ");
+                outputFile = "";
+            }
+        }
+
+        scanner.close();
     }
 }

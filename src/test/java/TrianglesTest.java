@@ -3,6 +3,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class TrianglesTest {
     private static ArrayList<int[]> triangles;
 
@@ -23,22 +26,23 @@ public class TrianglesTest {
         triangles.add(coordinateOfOneTriangles3);
         triangles.add(coordinateOfOneTriangles4);
 
-        Assert.assertEquals(coordinateOfOneTriangles1, Triangles.AreaOfTheLargestIsoscelesTriangle(triangles));
+        assertEquals(coordinateOfOneTriangles1, Triangles.AreaOfTheLargestIsoscelesTriangle(triangles));
     }
 
     @Test
     public void areaOfTheLargestIsoscelesTriangleShouldHaveNull(){
-        ArrayList<int[]> triangles = new ArrayList<>();
-
         int[] coordinateOfOneTriangles1 = {0, 0, 0, 0, 0, 0};
         int[] coordinateOfOneTriangles2 = {-1, 1, 0, 0, 0, 0};
         int[] coordinateOfOneTriangles3 = {-1, 1, -1, 1, -1, 1};
         int[] coordinateOfOneTriangles4 = {10, 22, -3, 7, 199, 200};
+        int[] coordinateOfOneTriangles5 = {0, 0, 0, 4, 0, 8};
 
         triangles.add(coordinateOfOneTriangles1);
         triangles.add(coordinateOfOneTriangles2);
         triangles.add(coordinateOfOneTriangles3);
         triangles.add(coordinateOfOneTriangles4);
+        triangles.add(coordinateOfOneTriangles4);
+        triangles.add(coordinateOfOneTriangles5);
 
         Assert.assertNull(Triangles.AreaOfTheLargestIsoscelesTriangle(triangles));
     }

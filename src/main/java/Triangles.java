@@ -1,11 +1,13 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Triangles {
     public static int[] AreaOfTheLargestIsoscelesTriangle(ArrayList<int[]> list){
         double area = 0;
         double areaBuf = 0;
-
         int[] CoordinatesOfTheLargestTriangle = new int[6];
+
         for (int[] TriangleCoordinates : list) {
             int Xa = TriangleCoordinates[0];
             int Ya = TriangleCoordinates[1];
@@ -17,6 +19,15 @@ public class Triangles {
             double AB = Math.sqrt((Xb - Xa) * (Xb - Xa) + (Yb - Ya) * (Yb - Ya));
             double AC = Math.sqrt((Xc - Xa) * (Xc - Xa) + (Yc - Ya) * (Yc - Ya));
             double BC = Math.sqrt((Xc - Xb) * (Xc - Xb) + (Yc - Yb) * (Yc - Yb));
+
+            try{
+                if (Double.isNaN(AB) || Double.isNaN(AC) || Double.isNaN(BC))
+                    throw new NaNException();
+            } catch (NaNException e){
+                System.out.println();
+                System.out.println("The coordinates of triangle: " + Arrays.toString(TriangleCoordinates) + " are too large, area of this triangle cannot be calculated");
+                continue;
+            }
 
             if (AB == AC & AB != 0 & AC != 0 & BC != 0) {
                 areaBuf = BC/4 * Math.sqrt(4*AB*AB - BC*BC);
